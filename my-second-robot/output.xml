@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20230228 22:58:36.064" rpa="false" schemaversion="3">
+<suite id="s1" name="Tasks" source="c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\tasks.robot">
+<test id="s1-t1" name="Order robots from RobotSpareBin Industries Inc" line="39">
+<kw name="Directory Cleanup">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Cleaning up content from previous test runs</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230228 22:58:37.734" endtime="20230228 22:58:37.734"/>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<arg>${output_folder}</arg>
+<doc>Creates the specified directory.</doc>
+<msg timestamp="20230228 22:58:37.735" level="INFO" html="true">Directory '&lt;a href="file://c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\output"&gt;c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\output&lt;/a&gt;' already exists.</msg>
+<status status="PASS" starttime="20230228 22:58:37.735" endtime="20230228 22:58:37.736"/>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<arg>${img_folder}</arg>
+<doc>Creates the specified directory.</doc>
+<msg timestamp="20230228 22:58:37.737" level="INFO" html="true">Directory '&lt;a href="file://c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\image_files"&gt;c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\image_files&lt;/a&gt;' already exists.</msg>
+<status status="PASS" starttime="20230228 22:58:37.737" endtime="20230228 22:58:37.737"/>
+</kw>
+<kw name="Create Directory" library="OperatingSystem">
+<arg>${pdf_folder}</arg>
+<doc>Creates the specified directory.</doc>
+<msg timestamp="20230228 22:58:37.738" level="INFO" html="true">Directory '&lt;a href="file://c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\pdf_files"&gt;c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\pdf_files&lt;/a&gt;' already exists.</msg>
+<status status="PASS" starttime="20230228 22:58:37.737" endtime="20230228 22:58:37.738"/>
+</kw>
+<kw name="Empty Directory" library="OperatingSystem">
+<arg>${img_folder}</arg>
+<doc>Deletes all the content from the given directory.</doc>
+<msg timestamp="20230228 22:58:37.738" level="INFO" html="true">Listing contents of directory '&lt;a href="file://c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\image_files"&gt;c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\image_files&lt;/a&gt;'.</msg>
+<msg timestamp="20230228 22:58:37.739" level="INFO" html="true">Emptied directory '&lt;a href="file://c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\image_files"&gt;c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\image_files&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20230228 22:58:37.738" endtime="20230228 22:58:37.739"/>
+</kw>
+<kw name="Empty Directory" library="OperatingSystem">
+<arg>${pdf_folder}</arg>
+<doc>Deletes all the content from the given directory.</doc>
+<msg timestamp="20230228 22:58:37.739" level="INFO" html="true">Listing contents of directory '&lt;a href="file://c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\pdf_files"&gt;c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\pdf_files&lt;/a&gt;'.</msg>
+<msg timestamp="20230228 22:58:37.740" level="INFO" html="true">Emptied directory '&lt;a href="file://c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\pdf_files"&gt;c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\pdf_files&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20230228 22:58:37.739" endtime="20230228 22:58:37.740"/>
+</kw>
+<kw name="Empty Directory" library="OperatingSystem">
+<arg>${output_folder}</arg>
+<doc>Deletes all the content from the given directory.</doc>
+<msg timestamp="20230228 22:58:37.740" level="INFO" html="true">Listing contents of directory '&lt;a href="file://c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\output"&gt;c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\output&lt;/a&gt;'.</msg>
+<msg timestamp="20230228 22:58:37.740" level="INFO" html="true">Emptied directory '&lt;a href="file://c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\output"&gt;c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\output&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20230228 22:58:37.740" endtime="20230228 22:58:37.740"/>
+</kw>
+<status status="PASS" starttime="20230228 22:58:37.734" endtime="20230228 22:58:37.740"/>
+</kw>
+<kw name="Open the robot order website">
+<kw name="Open Available Browser" library="RPA.Browser.Selenium">
+<arg>${url}</arg>
+<doc>Attempts to open a browser on the user's device from a set of
+supported browsers. Automatically downloads a corresponding webdriver
+if none is already installed.</doc>
+<msg timestamp="20230228 22:58:37.742" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230228 22:58:37.745" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20230228 22:58:38.638" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230228 22:58:39.677" level="INFO">Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg timestamp="20230228 22:58:39.678" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;True&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg timestamp="20230228 22:58:39.678" level="INFO">Opening url 'https://robotsparebinindustries.com/#/robot-order'</msg>
+<status status="PASS" starttime="20230228 22:58:37.742" endtime="20230228 22:58:40.097"/>
+</kw>
+<status status="PASS" starttime="20230228 22:58:37.741" endtime="20230228 22:58:40.098"/>
+</kw>
+<kw name="Get orders">
+<var>${orders}</var>
+<kw name="Download" library="RPA.HTTP">
+<arg>url=${csv_url}</arg>
+<arg>target_file=${orders_file}</arg>
+<arg>overwrite=True</arg>
+<doc>An alias for the ``HTTP Get`` keyword.</doc>
+<msg timestamp="20230228 22:58:40.100" level="INFO">Creating a new HTTP session</msg>
+<msg timestamp="20230228 22:58:40.100" level="INFO">Creating Session using : alias=rpasession_alias.httpsrobotsparebinindustries.com, url=https://robotsparebinindustries.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20230228 22:58:40.099" endtime="20230228 22:58:40.347"/>
+</kw>
+<kw name="Read table from CSV" library="RPA.Tables">
+<var>${table}</var>
+<arg>path=${orders_file}</arg>
+<doc>Read a CSV file as a table.</doc>
+<msg timestamp="20230228 22:58:40.350" level="INFO">${table} = Table(columns=['Order number', 'Head', 'Body', 'Legs', 'Address'], rows=20)</msg>
+<status status="PASS" starttime="20230228 22:58:40.348" endtime="20230228 22:58:40.350"/>
+</kw>
+<msg timestamp="20230228 22:58:40.350" level="INFO">${orders} = Table(columns=['Order number', 'Head', 'Body', 'Legs', 'Address'], rows=20)</msg>
+<status status="PASS" starttime="20230228 22:58:40.098" endtime="20230228 22:58:40.351"/>
+</kw>
+<for flavor="IN">
+<var>${row}</var>
+<value>@{orders}</value>
+<iter>
+<var name="${row}">{'Order number': '1', 'Head': '1', 'Body': '2', 'Legs': '3', 'Address': 'Address 123'}</var>
+<kw name="Close the annoying modal">
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${btn_yep}</arg>
+<arg>//*[@id="root"]/div/div[2]/div/div/div/div/div/button[2]</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.353" level="INFO">${btn_yep} = //*[@id="root"]/div/div[2]/div/div/div/div/div/button[2]</msg>
+<status status="PASS" starttime="20230228 22:58:40.352" endtime="20230228 22:58:40.353"/>
+</kw>
+<kw name="Wait And Click Button" library="RPA.Browser.Selenium">
+<arg>${btn_yep}</arg>
+<doc>Click button identified by ``locator``, once it becomes visible.</doc>
+<msg timestamp="20230228 22:58:40.369" level="INFO">Clicking button '//*[@id="root"]/div/div[2]/div/div/div/div/div/button[2]'.</msg>
+<status status="PASS" starttime="20230228 22:58:40.353" endtime="20230228 22:58:40.401"/>
+</kw>
+<status status="PASS" starttime="20230228 22:58:40.352" endtime="20230228 22:58:40.401"/>
+</kw>
+<kw name="Fill the form">
+<arg>${row}</arg>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${order_no}</arg>
+<arg>${myrow}[Order number]</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.403" level="INFO">${order_no} = 1</msg>
+<status status="PASS" starttime="20230228 22:58:40.402" endtime="20230228 22:58:40.403"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${head}</arg>
+<arg>${myrow}[Head]</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.404" level="INFO">${head} = 1</msg>
+<status status="PASS" starttime="20230228 22:58:40.403" endtime="20230228 22:58:40.404"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${body}</arg>
+<arg>${myrow}[Body]</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.405" level="INFO">${body} = 2</msg>
+<status status="PASS" starttime="20230228 22:58:40.404" endtime="20230228 22:58:40.405"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${legs}</arg>
+<arg>${myrow}[Legs]</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.406" level="INFO">${legs} = 3</msg>
+<status status="PASS" starttime="20230228 22:58:40.405" endtime="20230228 22:58:40.406"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${address}</arg>
+<arg>${myrow}[Address]</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.407" level="INFO">${address} = Address 123</msg>
+<status status="PASS" starttime="20230228 22:58:40.406" endtime="20230228 22:58:40.407"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${input_head}</arg>
+<arg>//*[@id="head"]</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.408" level="INFO">${input_head} = //*[@id="head"]</msg>
+<status status="PASS" starttime="20230228 22:58:40.407" endtime="20230228 22:58:40.408"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${input_body}</arg>
+<arg>body</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.409" level="INFO">${input_body} = body</msg>
+<status status="PASS" starttime="20230228 22:58:40.408" endtime="20230228 22:58:40.409"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${input_legs}</arg>
+<arg>xpath://html/body/div/div/div[1]/div/div[1]/form/div[3]/input</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.410" level="INFO">${input_legs} = xpath://html/body/div/div/div[1]/div/div[1]/form/div[3]/input</msg>
+<status status="PASS" starttime="20230228 22:58:40.409" endtime="20230228 22:58:40.410"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${input_address}</arg>
+<arg>//*[@id="address"]</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.411" level="INFO">${input_address} = //*[@id="address"]</msg>
+<status status="PASS" starttime="20230228 22:58:40.410" endtime="20230228 22:58:40.411"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${btn_preview}</arg>
+<arg>//*[@id="preview"]</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.412" level="INFO">${btn_preview} = //*[@id="preview"]</msg>
+<status status="PASS" starttime="20230228 22:58:40.411" endtime="20230228 22:58:40.412"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${btn_order}</arg>
+<arg>//*[@id="order"]</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.413" level="INFO">${btn_order} = //*[@id="order"]</msg>
+<status status="PASS" starttime="20230228 22:58:40.412" endtime="20230228 22:58:40.413"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${img_preview}</arg>
+<arg>//*[@id="robot-preview-image"]</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.414" level="INFO">${img_preview} = //*[@id="robot-preview-image"]</msg>
+<status status="PASS" starttime="20230228 22:58:40.413" endtime="20230228 22:58:40.414"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>${input_head}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230228 22:58:40.414" endtime="20230228 22:58:40.429"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="RPA.Browser.Selenium">
+<arg>${input_head}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230228 22:58:40.429" endtime="20230228 22:58:40.443"/>
+</kw>
+<kw name="Select From List By Value" library="RPA.Browser.Selenium">
+<arg>${input_head}</arg>
+<arg>${head}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230228 22:58:40.444" level="INFO">Selecting options from selection list '//*[@id="head"]' by value 1.</msg>
+<status status="PASS" starttime="20230228 22:58:40.444" endtime="20230228 22:58:40.479"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="RPA.Browser.Selenium">
+<arg>${input_body}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230228 22:58:40.480" endtime="20230228 22:58:40.497"/>
+</kw>
+<kw name="Select Radio Button" library="RPA.Browser.Selenium">
+<arg>${input_body}</arg>
+<arg>${body}</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<msg timestamp="20230228 22:58:40.498" level="INFO">Selecting '2' from radio button 'body'.</msg>
+<status status="PASS" starttime="20230228 22:58:40.498" endtime="20230228 22:58:40.526"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="RPA.Browser.Selenium">
+<arg>${input_legs}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230228 22:58:40.526" endtime="20230228 22:58:40.540"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>${input_legs}</arg>
+<arg>${legs}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230228 22:58:40.541" level="INFO">Typing text '3' into text field 'xpath://html/body/div/div/div[1]/div/div[1]/form/div[3]/input'.</msg>
+<status status="PASS" starttime="20230228 22:58:40.541" endtime="20230228 22:58:40.580"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="RPA.Browser.Selenium">
+<arg>${input_address}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20230228 22:58:40.580" endtime="20230228 22:58:40.595"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>${input_address}</arg>
+<arg>${address}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230228 22:58:40.596" level="INFO">Typing text 'Address 123' into text field '//*[@id="address"]'.</msg>
+<status status="PASS" starttime="20230228 22:58:40.596" endtime="20230228 22:58:40.644"/>
+</kw>
+<status status="PASS" starttime="20230228 22:58:40.402" endtime="20230228 22:58:40.644"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>10x</arg>
+<arg>2s</arg>
+<arg>Preview the robot</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Preview the robot">
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${btn_preview}</arg>
+<arg>//*[@id="preview"]</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.647" level="INFO">${btn_preview} = //*[@id="preview"]</msg>
+<status status="PASS" starttime="20230228 22:58:40.646" endtime="20230228 22:58:40.647"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${img_preview}</arg>
+<arg>//*[@id="robot-preview-image"]</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.648" level="INFO">${img_preview} = //*[@id="robot-preview-image"]</msg>
+<status status="PASS" starttime="20230228 22:58:40.647" endtime="20230228 22:58:40.648"/>
+</kw>
+<kw name="Click Button" library="RPA.Browser.Selenium">
+<arg>${btn_preview}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230228 22:58:40.648" level="INFO">Clicking button '//*[@id="preview"]'.</msg>
+<status status="PASS" starttime="20230228 22:58:40.648" endtime="20230228 22:58:40.682"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>${img_preview}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230228 22:58:40.683" endtime="20230228 22:58:40.694"/>
+</kw>
+<status status="PASS" starttime="20230228 22:58:40.645" endtime="20230228 22:58:40.695"/>
+</kw>
+<status status="PASS" starttime="20230228 22:58:40.644" endtime="20230228 22:58:40.695"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>10x</arg>
+<arg>2s</arg>
+<arg>Submit The Order</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Submit the order">
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${btn_order}</arg>
+<arg>//*[@id="order"]</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.697" level="INFO">${btn_order} = //*[@id="order"]</msg>
+<status status="PASS" starttime="20230228 22:58:40.696" endtime="20230228 22:58:40.697"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${lbl_receipt}</arg>
+<arg>//*[@id="receipt"]</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.698" level="INFO">${lbl_receipt} = //*[@id="receipt"]</msg>
+<status status="PASS" starttime="20230228 22:58:40.697" endtime="20230228 22:58:40.698"/>
+</kw>
+<kw name="Click Button" library="RPA.Browser.Selenium">
+<arg>${btn_order}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230228 22:58:40.698" level="INFO">Clicking button '//*[@id="order"]'.</msg>
+<status status="PASS" starttime="20230228 22:58:40.698" endtime="20230228 22:58:40.732"/>
+</kw>
+<kw name="Page Should Contain Element" library="RPA.Browser.Selenium">
+<arg>${lbl_receipt}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230228 22:58:40.738" level="INFO">Current page contains element '//*[@id="receipt"]'.</msg>
+<status status="PASS" starttime="20230228 22:58:40.732" endtime="20230228 22:58:40.739"/>
+</kw>
+<status status="PASS" starttime="20230228 22:58:40.696" endtime="20230228 22:58:40.739"/>
+</kw>
+<status status="PASS" starttime="20230228 22:58:40.695" endtime="20230228 22:58:40.739"/>
+</kw>
+<kw name="Take a screenshot of the robot">
+<var>${orderid}</var>
+<var>${img_filename}</var>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${lbl_orderid}</arg>
+<arg>xpath://html/body/div/div/div[1]/div/div[1]/div/div/p[1]</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.740" level="INFO">${lbl_orderid} = xpath://html/body/div/div/div[1]/div/div[1]/div/div/p[1]</msg>
+<status status="PASS" starttime="20230228 22:58:40.740" endtime="20230228 22:58:40.740"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${img_robot}</arg>
+<arg>//*[@id="robot-preview-image"]</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.741" level="INFO">${img_robot} = //*[@id="robot-preview-image"]</msg>
+<status status="PASS" starttime="20230228 22:58:40.741" endtime="20230228 22:58:40.741"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>${img_robot}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230228 22:58:40.742" endtime="20230228 22:58:40.749"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>${lbl_orderid}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230228 22:58:40.750" endtime="20230228 22:58:40.760"/>
+</kw>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${orderid}</var>
+<arg>//*[@id="receipt"]/p[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230228 22:58:40.771" level="INFO">${orderid} = RSB-ROBO-ORDER-AN1NSZWMXN</msg>
+<status status="PASS" starttime="20230228 22:58:40.760" endtime="20230228 22:58:40.771"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${fully_qualified_img_filename}</arg>
+<arg>${img_folder}${/}${orderid}.png</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:40.772" level="INFO">${fully_qualified_img_filename} = c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\image_files\RSB-ROBO-ORDER-AN1NSZWMXN.png</msg>
+<status status="PASS" starttime="20230228 22:58:40.772" endtime="20230228 22:58:40.773"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1sec</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230228 22:58:41.778" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20230228 22:58:40.773" endtime="20230228 22:58:41.779"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Capturing Screenshot to ${fully_qualified_img_filename}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230228 22:58:41.779" endtime="20230228 22:58:41.780"/>
+</kw>
+<kw name="Capture Element Screenshot" library="RPA.Browser.Selenium">
+<arg>${img_robot}</arg>
+<arg>${fully_qualified_img_filename}</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<msg timestamp="20230228 22:58:41.855" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="file:///C:/DATA_ANDRE/ENGIBOTS/RoboCorp/my-second-robot/image_files/RSB-ROBO-ORDER-AN1NSZWMXN.png"&gt;&lt;img src="file:///C:/DATA_ANDRE/ENGIBOTS/RoboCorp/my-second-robot/image_files/RSB-ROBO-ORDER-AN1NSZWMXN.png" width="400px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230228 22:58:41.780" endtime="20230228 22:58:41.855"/>
+</kw>
+<msg timestamp="20230228 22:58:41.856" level="INFO">${orderid} = RSB-ROBO-ORDER-AN1NSZWMXN</msg>
+<msg timestamp="20230228 22:58:41.856" level="INFO">${img_filename} = c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\image_files\RSB-ROBO-ORDER-AN1NSZWMXN.png</msg>
+<status status="PASS" starttime="20230228 22:58:40.739" endtime="20230228 22:58:41.856"/>
+</kw>
+<kw name="Store the receipt as a PDF file">
+<var>${pdf_filename}</var>
+<arg>ORDER_NUMBER=${order_id}</arg>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>//*[@id="receipt"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230228 22:58:41.857" endtime="20230228 22:58:41.868"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Printing ${ORDER_NUMBER}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230228 22:58:41.868" endtime="20230228 22:58:41.869"/>
+</kw>
+<kw name="Get Element Attribute" library="RPA.Browser.Selenium">
+<var>${order_receipt_html}</var>
+<arg>//*[@id="receipt"]</arg>
+<arg>outerHTML</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230228 22:58:41.878" level="INFO">${order_receipt_html} = &lt;div id="receipt" class="alert alert-success" role="alert"&gt;&lt;h3&gt;Receipt&lt;/h3&gt;&lt;div&gt;2023-02-28T22:58:40.727Z&lt;/div&gt;&lt;p class="badge badge-success"&gt;RSB-ROBO-ORDER-AN1NSZWMXN&lt;/p&gt;&lt;p&gt;Address 123&lt;/p&gt;&lt;div id="par...</msg>
+<status status="PASS" starttime="20230228 22:58:41.869" endtime="20230228 22:58:41.879"/>
+</kw>
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${fully_qualified_pdf_filename}</arg>
+<arg>${pdf_folder}${/}${ORDER_NUMBER}.pdf</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<msg timestamp="20230228 22:58:41.880" level="INFO">${fully_qualified_pdf_filename} = c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\pdf_files\RSB-ROBO-ORDER-AN1NSZWMXN.pdf</msg>
+<status status="PASS" starttime="20230228 22:58:41.879" endtime="20230228 22:58:41.881"/>
+</kw>
+<kw name="Html To Pdf" library="RPA.PDF">
+<arg>content=${order_receipt_html}</arg>
+<arg>output_path=${fully_qualified_pdf_filename}</arg>
+<doc>Generate a PDF file from HTML content.</doc>
+<msg timestamp="20230228 22:58:41.883" level="INFO">Writing output to file C:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\pdf_files\RSB-ROBO-ORDER-AN1NSZWMXN.pdf</msg>
+<msg timestamp="20230228 22:58:41.962" level="INFO">maxp pruned</msg>
+<msg timestamp="20230228 22:58:41.962" level="INFO">cmap pruned</msg>
+<msg timestamp="20230228 22:58:41.964" level="INFO">post pruned</msg>
+<msg timestamp="20230228 22:58:41.965" level="INFO">GDEF dropped</msg>
+<msg timestamp="20230228 22:58:41.965" level="INFO">GPOS dropped</msg>
+<msg timestamp="20230228 22:58:41.965" level="INFO">GSUB dropped</msg>
+<msg timestamp="20230228 22:58:41.966" level="INFO">name pruned</msg>
+<msg timestamp="20230228 22:58:41.969" level="INFO">glyf pruned</msg>
+<msg timestamp="20230228 22:58:41.969" level="INFO">Added gid0 to subset</msg>
+<msg timestamp="20230228 22:58:41.969" level="INFO">Added first four glyphs to subset</msg>
+<msg timestamp="20230228 22:58:41.969" level="INFO">Closing glyph list over 'glyf': 58 glyphs before</msg>
+<msg timestamp="20230228 22:58:41.970" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0021', 'uni002D', 'uni002E', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni003A', 'uni0041', 'uni0042', 'uni0044', 'uni0045', 'uni0048', 'uni004C', 'uni004D', 'uni004E', 'uni004F', 'uni0052', 'uni0053', 'uni0054', 'uni0057', 'uni0058', 'uni0059', 'uni005A', 'uni0061', 'uni0062', 'uni0063', 'uni0064', 'uni0065', 'uni0066', 'uni0067', 'uni0068', 'uni0069', 'uni006B', 'uni006C', 'uni006D', 'uni006E', 'uni006F', 'uni0070', 'uni0072', 'uni0073', 'uni0074', 'uni0075', 'uni0076', 'uni0077', 'uni0079', 'uni007B', 'uni007D', 'uni00C4']</msg>
+<msg timestamp="20230228 22:58:41.970" level="INFO">Glyph IDs:   [0, 1, 2, 3, 65, 84, 95, 161, 280, 291, 299, 320, 382, 395, 409, 456, 463, 469, 493, 504, 575, 582, 594, 612, 645, 650, 660, 679, 715, 723, 752, 759, 775, 827, 837, 867, 884, 899, 932, 936, 950, 1294, 1295, 1296, 1298, 1299, 1300, 1302, 1303, 1304, 1305, 1329, 1345, 1346, 1361, 1404, 1407, 1681]</msg>
+<msg timestamp="20230228 22:58:41.970" level="INFO">Closed glyph list over 'glyf': 58 glyphs after</msg>
+<msg timestamp="20230228 22:58:41.970" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0021', 'uni002D', 'uni002E', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni003A', 'uni0041', 'uni0042', 'uni0044', 'uni0045', 'uni0048', 'uni004C', 'uni004D', 'uni004E', 'uni004F', 'uni0052', 'uni0053', 'uni0054', 'uni0057', 'uni0058', 'uni0059', 'uni005A', 'uni0061', 'uni0062', 'uni0063', 'uni0064', 'uni0065', 'uni0066', 'uni0067', 'uni0068', 'uni0069', 'uni006B', 'uni006C', 'uni006D', 'uni006E', 'uni006F', 'uni0070', 'uni0072', 'uni0073', 'uni0074', 'uni0075', 'uni0076', 'uni0077', 'uni0079', 'uni007B', 'uni007D', 'uni00C4']</msg>
+<msg timestamp="20230228 22:58:41.970" level="INFO">Glyph IDs:   [0, 1, 2, 3, 65, 84, 95, 161, 280, 291, 299, 320, 382, 395, 409, 456, 463, 469, 493, 504, 575, 582, 594, 612, 645, 650, 660, 679, 715, 723, 752, 759, 775, 827, 837, 867, 884, 899, 932, 936, 950, 1294, 1295, 1296, 1298, 1299, 1300, 1302, 1303, 1304, 1305, 1329, 1345, 1346, 1361, 1404, 1407, 1681]</msg>
+<msg timestamp="20230228 22:58:41.971" level="INFO">Retaining 58 glyphs</msg>
+<msg timestamp="20230228 22:58:41.971" level="INFO">head subsetting not needed</msg>
+<msg timestamp="20230228 22:58:41.971" level="INFO">hhea subsetting not needed</msg>
+<msg timestamp="20230228 22:58:41.971" level="INFO">maxp subsetting not needed</msg>
+<msg timestamp="20230228 22:58:41.971" level="INFO">OS/2 subsetting not needed</msg>
+<msg timestamp="20230228 22:58:41.972" level="INFO">hmtx subsetted</msg>
+<msg timestamp="20230228 22:58:41.973" level="INFO">cmap subsetted</msg>
+<msg timestamp="20230228 22:58:41.973" level="INFO">prep subsetting not needed</msg>
+<msg timestamp="20230228 22:58:41.973" level="INFO">loca subsetting not needed</msg>
+<msg timestamp="20230228 22:58:41.974" level="INFO">post subsetted</msg>
+<msg timestamp="20230228 22:58:41.974" level="INFO">gasp subsetting not needed</msg>
+<msg timestamp="20230228 22:58:41.974" level="INFO">STAT subsetting not needed</msg>
+<msg timestamp="20230228 22:58:41.974" level="INFO">name subsetting not needed</msg>
+<msg timestamp="20230228 22:58:41.975" level="INFO">glyf subsetted</msg>
+<msg timestamp="20230228 22:58:41.975" level="INFO">head pruned</msg>
+<msg timestamp="20230228 22:58:41.975" level="INFO">OS/2 Unicode ranges pruned: [0]</msg>
+<msg timestamp="20230228 22:58:41.976" level="INFO">glyf pruned</msg>
+<msg timestamp="20230228 22:58:41.995" level="INFO">maxp pruned</msg>
+<msg timestamp="20230228 22:58:41.995" level="INFO">cmap pruned</msg>
+<msg timestamp="20230228 22:58:41.995" level="INFO">post pruned</msg>
+<msg timestamp="20230228 22:58:41.995" level="INFO">GDEF dropped</msg>
+<msg timestamp="20230228 22:58:41.995" level="INFO">GPOS dropped</msg>
+<msg timestamp="20230228 22:58:41.995" level="INFO">GSUB dropped</msg>
+<msg timestamp="20230228 22:58:41.996" level="INFO">name pruned</msg>
+<msg timestamp="20230228 22:58:41.999" level="INFO">glyf pruned</msg>
+<msg timestamp="20230228 22:58:41.999" level="INFO">Added gid0 to subset</msg>
+<msg timestamp="20230228 22:58:42.000" level="INFO">Added first four glyphs to subset</msg>
+<msg timestamp="20230228 22:58:42.000" level="INFO">Closing glyph list over 'glyf': 19 glyphs before</msg>
+<msg timestamp="20230228 22:58:42.000" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0041', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00C4']</msg>
+<msg timestamp="20230228 22:58:42.000" level="INFO">Glyph IDs:   [0, 1, 2, 3, 575, 759, 1294, 1295, 1296, 1298, 1299, 1300, 1302, 1303, 1304, 1305, 1345, 1346, 1681]</msg>
+<msg timestamp="20230228 22:58:42.000" level="INFO">Closed glyph list over 'glyf': 19 glyphs after</msg>
+<msg timestamp="20230228 22:58:42.000" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0041', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00C4']</msg>
+<msg timestamp="20230228 22:58:42.000" level="INFO">Glyph IDs:   [0, 1, 2, 3, 575, 759, 1294, 1295, 1296, 1298, 1299, 1300, 1302, 1303, 1304, 1305, 1345, 1346, 1681]</msg>
+<msg timestamp="20230228 22:58:42.001" level="INFO">Retaining 19 glyphs</msg>
+<msg timestamp="20230228 22:58:42.001" level="INFO">head subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.001" level="INFO">hhea subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.001" level="INFO">maxp subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.001" level="INFO">OS/2 subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.002" level="INFO">hmtx subsetted</msg>
+<msg timestamp="20230228 22:58:42.003" level="INFO">cmap subsetted</msg>
+<msg timestamp="20230228 22:58:42.003" level="INFO">prep subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.004" level="INFO">loca subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.004" level="INFO">post subsetted</msg>
+<msg timestamp="20230228 22:58:42.004" level="INFO">gasp subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.004" level="INFO">STAT subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.004" level="INFO">name subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.005" level="INFO">glyf subsetted</msg>
+<msg timestamp="20230228 22:58:42.005" level="INFO">head pruned</msg>
+<msg timestamp="20230228 22:58:42.005" level="INFO">OS/2 Unicode ranges pruned: [0]</msg>
+<msg timestamp="20230228 22:58:42.005" level="INFO">glyf pruned</msg>
+<msg timestamp="20230228 22:58:42.017" level="INFO">maxp pruned</msg>
+<msg timestamp="20230228 22:58:42.018" level="INFO">cmap pruned</msg>
+<msg timestamp="20230228 22:58:42.018" level="INFO">post pruned</msg>
+<msg timestamp="20230228 22:58:42.018" level="INFO">GDEF dropped</msg>
+<msg timestamp="20230228 22:58:42.018" level="INFO">GPOS dropped</msg>
+<msg timestamp="20230228 22:58:42.018" level="INFO">GSUB dropped</msg>
+<msg timestamp="20230228 22:58:42.018" level="INFO">name pruned</msg>
+<msg timestamp="20230228 22:58:42.021" level="INFO">glyf pruned</msg>
+<msg timestamp="20230228 22:58:42.023" level="INFO">Added gid0 to subset</msg>
+<msg timestamp="20230228 22:58:42.023" level="INFO">Added first four glyphs to subset</msg>
+<msg timestamp="20230228 22:58:42.023" level="INFO">Closing glyph list over 'glyf': 18 glyphs before</msg>
+<msg timestamp="20230228 22:58:42.023" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00A0']</msg>
+<msg timestamp="20230228 22:58:42.023" level="INFO">Glyph IDs:   [0, 1, 2, 3, 544, 727, 1256, 1257, 1258, 1260, 1261, 1262, 1264, 1265, 1266, 1267, 1307, 1308]</msg>
+<msg timestamp="20230228 22:58:42.023" level="INFO">Closed glyph list over 'glyf': 18 glyphs after</msg>
+<msg timestamp="20230228 22:58:42.023" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00A0']</msg>
+<msg timestamp="20230228 22:58:42.024" level="INFO">Glyph IDs:   [0, 1, 2, 3, 544, 727, 1256, 1257, 1258, 1260, 1261, 1262, 1264, 1265, 1266, 1267, 1307, 1308]</msg>
+<msg timestamp="20230228 22:58:42.024" level="INFO">Retaining 18 glyphs</msg>
+<msg timestamp="20230228 22:58:42.024" level="INFO">head subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.024" level="INFO">hhea subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.024" level="INFO">maxp subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.024" level="INFO">OS/2 subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.025" level="INFO">hmtx subsetted</msg>
+<msg timestamp="20230228 22:58:42.026" level="INFO">cmap subsetted</msg>
+<msg timestamp="20230228 22:58:42.026" level="INFO">loca subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.026" level="INFO">post subsetted</msg>
+<msg timestamp="20230228 22:58:42.026" level="INFO">name subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.027" level="INFO">glyf subsetted</msg>
+<msg timestamp="20230228 22:58:42.027" level="INFO">head pruned</msg>
+<msg timestamp="20230228 22:58:42.027" level="INFO">OS/2 Unicode ranges pruned: [0]</msg>
+<msg timestamp="20230228 22:58:42.028" level="INFO">glyf pruned</msg>
+<msg timestamp="20230228 22:58:42.038" level="INFO">maxp pruned</msg>
+<msg timestamp="20230228 22:58:42.039" level="INFO">cmap pruned</msg>
+<msg timestamp="20230228 22:58:42.039" level="INFO">post pruned</msg>
+<msg timestamp="20230228 22:58:42.039" level="INFO">GDEF dropped</msg>
+<msg timestamp="20230228 22:58:42.039" level="INFO">GPOS dropped</msg>
+<msg timestamp="20230228 22:58:42.039" level="INFO">GSUB dropped</msg>
+<msg timestamp="20230228 22:58:42.040" level="INFO">name pruned</msg>
+<msg timestamp="20230228 22:58:42.043" level="INFO">glyf pruned</msg>
+<msg timestamp="20230228 22:58:42.045" level="INFO">Added gid0 to subset</msg>
+<msg timestamp="20230228 22:58:42.045" level="INFO">Added first four glyphs to subset</msg>
+<msg timestamp="20230228 22:58:42.045" level="INFO">Closing glyph list over 'glyf': 18 glyphs before</msg>
+<msg timestamp="20230228 22:58:42.045" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00A0']</msg>
+<msg timestamp="20230228 22:58:42.046" level="INFO">Glyph IDs:   [0, 1, 2, 3, 544, 727, 1256, 1257, 1258, 1260, 1261, 1262, 1264, 1265, 1266, 1267, 1307, 1308]</msg>
+<msg timestamp="20230228 22:58:42.046" level="INFO">Closed glyph list over 'glyf': 18 glyphs after</msg>
+<msg timestamp="20230228 22:58:42.046" level="INFO">Glyph names: ['.notdef', '.null', 'uni0020', 'uni0030', 'uni0031', 'uni0032', 'uni0033', 'uni0034', 'uni0035', 'uni0036', 'uni0037', 'uni0038', 'uni0039', 'uni0062', 'uni006E', 'uni007B', 'uni007D', 'uni00A0']</msg>
+<msg timestamp="20230228 22:58:42.046" level="INFO">Glyph IDs:   [0, 1, 2, 3, 544, 727, 1256, 1257, 1258, 1260, 1261, 1262, 1264, 1265, 1266, 1267, 1307, 1308]</msg>
+<msg timestamp="20230228 22:58:42.046" level="INFO">Retaining 18 glyphs</msg>
+<msg timestamp="20230228 22:58:42.046" level="INFO">head subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.046" level="INFO">hhea subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.047" level="INFO">maxp subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.047" level="INFO">OS/2 subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.048" level="INFO">hmtx subsetted</msg>
+<msg timestamp="20230228 22:58:42.048" level="INFO">cmap subsetted</msg>
+<msg timestamp="20230228 22:58:42.048" level="INFO">loca subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.048" level="INFO">post subsetted</msg>
+<msg timestamp="20230228 22:58:42.049" level="INFO">name subsetting not needed</msg>
+<msg timestamp="20230228 22:58:42.049" level="INFO">glyf subsetted</msg>
+<msg timestamp="20230228 22:58:42.049" level="INFO">head pruned</msg>
+<msg timestamp="20230228 22:58:42.050" level="INFO">OS/2 Unicode ranges pruned: [0]</msg>
+<msg timestamp="20230228 22:58:42.050" level="INFO">glyf pruned</msg>
+<status status="PASS" starttime="20230228 22:58:41.881" endtime="20230228 22:58:42.059"/>
+</kw>
+<msg timestamp="20230228 22:58:42.060" level="INFO">${pdf_filename} = c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\pdf_files\RSB-ROBO-ORDER-AN1NSZWMXN.pdf</msg>
+<status status="PASS" starttime="20230228 22:58:41.856" endtime="20230228 22:58:42.060"/>
+</kw>
+<kw name="Embed the robot screenshot to the receipt PDF file">
+<arg>IMG_FILE=${img_filename}</arg>
+<arg>PDF_FILE=${pdf_filename}</arg>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Printing Embedding image ${IMG_FILE} in pdf file ${PDF_FILE}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230228 22:58:42.060" endtime="20230228 22:58:42.061"/>
+</kw>
+<kw name="Open Pdf" library="RPA.PDF">
+<arg>${PDF_FILE}</arg>
+<doc>Open a PDF document for reading.</doc>
+<status status="PASS" starttime="20230228 22:58:42.062" endtime="20230228 22:58:42.069"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{myfiles}</var>
+<arg>${IMG_FILE}:x=0,y=0</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230228 22:58:42.070" level="INFO">@{myfiles} = [ c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\image_files\RSB-ROBO-ORDER-AN1NSZWMXN.png:x=0,y=0 ]</msg>
+<status status="PASS" starttime="20230228 22:58:42.069" endtime="20230228 22:58:42.070"/>
+</kw>
+<kw name="Add Files To Pdf" library="RPA.PDF">
+<arg>${myfiles}</arg>
+<arg>${PDF_FILE}</arg>
+<arg>${True}</arg>
+<doc>Add images and/or pdfs to new PDF document</doc>
+<msg timestamp="20230228 22:58:42.072" level="INFO">Adding page: 0</msg>
+<msg timestamp="20230228 22:58:42.074" level="WARN">Object 7 0 found</msg>
+<msg timestamp="20230228 22:58:42.077" level="WARN">Overwriting cache for 0 7</msg>
+<msg timestamp="20230228 22:58:42.080" level="WARN">Object 14 0 found</msg>
+<msg timestamp="20230228 22:58:42.081" level="WARN">Overwriting cache for 0 14</msg>
+<msg timestamp="20230228 22:58:42.084" level="WARN">Object 21 0 found</msg>
+<msg timestamp="20230228 22:58:42.085" level="WARN">Overwriting cache for 0 21</msg>
+<msg timestamp="20230228 22:58:42.088" level="WARN">Object 28 0 found</msg>
+<msg timestamp="20230228 22:58:42.090" level="WARN">Overwriting cache for 0 28</msg>
+<msg timestamp="20230228 22:58:42.095" level="INFO">File c:\DATA_ANDRE\ENGIBOTS\RoboCorp\my-second-robot\image_files\RSB-ROBO-ORDER-AN1NSZWMXN.png type: png</msg>
+<msg timestamp="20230228 22:58:42.095" level="INFO">Image parameters: {'x': '0', 'y': '0'}</msg>
+<status status="PASS" starttime="20230228 22:58:42.070" endtime="20230228 22:58:42.186"/>
+</kw>
+<kw name="Close Pdf" library="RPA.PDF">
+<arg>${PDF_FILE}</arg>
+<doc>Close PDF file descriptor for a certain file.</doc>
+<msg timestamp="20230228 22:58:42.187" level="FAIL">ValueError: PDF 'c:\\DATA_ANDRE\\ENGIBOTS\\RoboCorp\\my-second-robot\\pdf_files\\RSB-ROBO-ORDER-AN1NSZWMXN.pdf' is not open</msg>
+<status status="FAIL" starttime="20230228 22:58:42.186" endtime="20230228 22:58:42.188"/>
+</kw>
+<status status="FAIL" starttime="20230228 22:58:42.060" endtime="20230228 22:58:42.188"/>
+</kw>
+<kw name="Go to order another robot">
+<status status="NOT RUN" starttime="20230228 22:58:42.189" endtime="20230228 22:58:42.189"/>
+</kw>
+<status status="FAIL" starttime="20230228 22:58:40.351" endtime="20230228 22:58:42.190"/>
+</iter>
+<status status="FAIL" starttime="20230228 22:58:40.351" endtime="20230228 22:58:42.191"/>
+</for>
+<kw name="Create a Zip File of the Receipts">
+<status status="NOT RUN" starttime="20230228 22:58:42.191" endtime="20230228 22:58:42.191"/>
+</kw>
+<kw name="Log Out And Close The Browser">
+<status status="NOT RUN" starttime="20230228 22:58:42.191" endtime="20230228 22:58:42.192"/>
+</kw>
+<status status="FAIL" starttime="20230228 22:58:37.733" endtime="20230228 22:58:42.192">ValueError: PDF 'c:\\DATA_ANDRE\\ENGIBOTS\\RoboCorp\\my-second-robot\\pdf_files\\RSB-ROBO-ORDER-AN1NSZWMXN.pdf' is not open</status>
+</test>
+<doc>Orders robots from RobotSpareBin Industries Inc.
+Saves the order HTML receipt as a PDF file.
+Saves the screenshot of the ordered robot.
+Embeds the screenshot of the robot to the PDF receipt.
+Creates ZIP archive of the receipts and the images.
+Author: www.github.com/joergschultzelutter</doc>
+<status status="FAIL" starttime="20230228 22:58:36.069" endtime="20230228 22:58:42.193"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Tasks">Tasks</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230228 22:58:37.719" level="WARN">This is a deprecated import that will be removed in favor of RPA.Robocorp.Vault</msg>
+<msg timestamp="20230228 22:58:42.074" level="WARN">Object 7 0 found</msg>
+<msg timestamp="20230228 22:58:42.077" level="WARN">Overwriting cache for 0 7</msg>
+<msg timestamp="20230228 22:58:42.080" level="WARN">Object 14 0 found</msg>
+<msg timestamp="20230228 22:58:42.081" level="WARN">Overwriting cache for 0 14</msg>
+<msg timestamp="20230228 22:58:42.084" level="WARN">Object 21 0 found</msg>
+<msg timestamp="20230228 22:58:42.085" level="WARN">Overwriting cache for 0 21</msg>
+<msg timestamp="20230228 22:58:42.088" level="WARN">Object 28 0 found</msg>
+<msg timestamp="20230228 22:58:42.090" level="WARN">Overwriting cache for 0 28</msg>
+</errors>
+</robot>
