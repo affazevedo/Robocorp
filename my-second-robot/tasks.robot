@@ -17,22 +17,16 @@ Library           RPA.Robocloud.Secrets
 Library           OperatingSystem
 
 
-#
-# In order to run this program, you MUST change the devdata/env.json file. Its content only seems to accept an absolute
-# file name. This seems to be a RPA limitation.
-#  Addititionally, the venv setting in the .vscode/settings.json file needs to be changed.
-#
-
 *** Variables ***
-${url}            https://robotsparebinindustries.com/#/robot-order
+${_url}            https://robotsparebinindustries.com/#/robot-order
 
-${img_folder}     ${CURDIR}${/}image_files
-${pdf_folder}     ${CURDIR}${/}pdf_files
-${output_folder}  ${CURDIR}${/}output
+${_imgFolder}     ${CURDIR}${/}image_files
+${_pdfFolder}     ${CURDIR}${/}pdf_files
+${_outputFolder}  ${CURDIR}${/}output
 
-${orders_file}    ${CURDIR}${/}orders.csv
-${zip_file}       ${output_folder}${/}pdf_archive.zip
-${csv_url}        https://robotsparebinindustries.com/orders.csv
+${_ordersFile}    ${CURDIR}${/}orders.csv
+${_zipFile}       ${_outputFolder}${/}pdf_archive.zip
+${_csvUrl}        https://robotsparebinindustries.com/orders.csv
 
 
 *** Test Cases ***
@@ -55,7 +49,7 @@ Order robots from RobotSpareBin Industries Inc
     END
     Create a ZIP file of the receipts
 
-    Log Out And Close The Browser
+    Close Browser
 
     
 *** Keywords ***
@@ -67,17 +61,17 @@ Directory Cleanup
 
     # The archive command will not create this automatically so we need to ensure that the directory is there
     # Create Directory will not give us an error if the directory already exists.
-    Create Directory    ${output_folder}
-    Create Directory    ${img_folder}
-    Create Directory    ${pdf_folder}
+    Create Directory    ${_outputFolder}
+    Create Directory    ${_imgFolder}
+    Create Directory    ${_pdfFolder}
 
-    Empty Directory     ${img_folder}
-    Empty Directory     ${pdf_folder}
-    # Empty Directory     ${output_folder}
+    Empty Directory     ${_imgFolder}
+    Empty Directory     ${_pdfFolder}
+    # Empty Directory     ${_outputFolder}
 
 Get orders
-    Download    url=${csv_url}         target_file=${orders_file}    overwrite=True
-    ${table}=   Read table from CSV    path=${orders_file}
+    Download    url=${_csvUrl}         target_file=${_ordersFile}    overwrite=True
+    ${table}=   Read table from CSV    path=${_ordersFile}
     [Return]    ${table}
 
 Close the annoying modal
@@ -85,8 +79,7 @@ Close the annoying modal
     Set Local Variable              ${btn_yep}        //*[@id="root"]/div/div[2]/div/div/div/div/div/button[2]
     Wait And Click Button           ${btn_yep}
 
-Fill the form
-    [Arguments]     ${myrow}
+Fill the form    [Arguments]     ${myrow}
 
     # Extract the values from the  dictionary
     Set Local Variable    ${order_no}   ${myrow}[Order number]
@@ -95,10 +88,7 @@ Fill the form
     Set Local Variable    ${legs}       ${myrow}[Legs]
     Set Local Variable    ${address}    ${myrow}[Address]
 
-    # Define local variables for the UI elements
-    # "legs" UID changes all the time so this one uses an
-    # absolute xpath. I prefer local variables over 
-    # "Assign ID To Element" as the latter does not seem
+    
     # to be able to use a full XPath reference
     Set Local Variable      ${input_head}       //*[@id="head"]
     Set Local Variable      ${input_body}       body
@@ -108,13 +98,7 @@ Fill the form
     Set Local Variable      ${btn_order}        //*[@id="order"]
     Set Local Variable      ${img_preview}      //*[@id="robot-preview-image"]
 
-    # Input the data. I use a "cautious" approach and assume
-    # that there are situations when a field is not yet visible
-    # It is however assumed that all of the input elements are visible
-    # when the first element has been rendered visible.
-    # An even more careful approach would result in checking if e.g.
-    # the given group is actually a radio button, dropdown list etc.
-    # However, this was deemed out of scope for this exercise
+   
     Wait Until Element Is Visible   ${input_head}
     Wait Until Element Is Enabled   ${input_head}
     Select From List By Value       ${input_head}           ${head}
@@ -128,14 +112,12 @@ Fill the form
     Input Text                      ${input_address}        ${address}
 
 Preview the robot
-    # Define local variables for the UI elements
     Set Local Variable              ${btn_preview}      //*[@id="preview"]
     Set Local Variable              ${img_preview}      //*[@id="robot-preview-image"]
     Click Button                    ${btn_preview}
     Wait Until Element Is Visible   ${img_preview}
 
 Submit the order
-    # Define local variables for the UI elements
     Set Local Variable              ${btn_order}        //*[@id="order"]
     Set Local Variable              ${lbl_receipt}      //*[@id="receipt"]
 
@@ -145,11 +127,9 @@ Submit the order
     Page Should Contain Element     ${lbl_receipt}
 
 Take a screenshot of the robot
-    # Define local variables for the UI elements
     Set Local Variable      ${lbl_orderid}      xpath://html/body/div/div/div[1]/div/div[1]/div/div/p[1]
     Set Local Variable      ${img_robot}        //*[@id="robot-preview-image"]
 
-    # This is supposed to help with network congestion (I hope)
     # when loading an image takes too long and we will only end up with a partial download.
     Wait Until Element Is Visible   ${img_robot}
     Wait Until Element Is Visible   ${lbl_orderid} 
@@ -158,15 +138,8 @@ Take a screenshot of the robot
     ${orderid}=                     Get Text            //*[@id="receipt"]/p[1]
 
     # Create the File Name
-    Set Local Variable              ${fully_qualified_img_filename}    ${img_folder}${/}${orderid}.png
+    Set Local Variable              ${fully_qualified_img_filename}    ${_imgFolder}${/}${orderid}.png
 
-    # The sleep command is a dirty workaround for the case where one part of the three-folded image has not yet been loaded
-    # This can happen at very throttled download speeds and results in an incomplete target image.
-    # A preference would be to have a keyword such as "Wait until image has been downloaded" over this quick hack
-    # but even Selenium does not support this natively. 
-    #
-    # Sorry mates - I mainly use Robot Framework for REST APIs. Web testing is not my primary domain :-)
-    #
     Sleep   1sec
     Log To Console                  Capturing Screenshot to ${fully_qualified_img_filename}
     Capture Element Screenshot      ${img_robot}    ${fully_qualified_img_filename}
@@ -174,31 +147,28 @@ Take a screenshot of the robot
     [Return]    ${orderid}  ${fully_qualified_img_filename}
 
 Go to order another robot
-    # Define local variables for the UI elements
     Set Local Variable      ${btn_order_another_robot}      //*[@id="order-another"]
     Click Button            ${btn_order_another_robot}
 
-Log Out And Close The Browser
+Close Browser
     Close Browser
 
 Create a Zip File of the Receipts
-    Archive Folder With ZIP     ${pdf_folder}  ${zip_file}   recursive=True  include=*.pdf
+    Archive Folder With ZIP     ${_pdfFolder}  ${_zipFile}   recursive=True  include=*.pdf
 
-Store the receipt as a PDF file
-    [Arguments]        ${ORDER_NUMBER}
+Store the receipt as a PDF file    [Arguments]        ${ORDER_NUMBER}
 
     Wait Until Element Is Visible   //*[@id="receipt"]
     Log To Console                  Printing ${ORDER_NUMBER}
     ${order_receipt_html}=          Get Element Attribute   //*[@id="receipt"]  outerHTML
 
-    Set Local Variable              ${fully_qualified_pdf_filename}    ${pdf_folder}${/}${ORDER_NUMBER}.pdf
+    Set Local Variable              ${fully_qualified_pdf_filename}    ${_pdfFolder}${/}${ORDER_NUMBER}.pdf
 
     Html To Pdf                     content=${order_receipt_html}   output_path=${fully_qualified_pdf_filename}
 
     [Return]    ${fully_qualified_pdf_filename}
 
-Embed the robot screenshot to the receipt PDF file
-    [Arguments]     ${IMG_FILE}     ${PDF_FILE}
+Embed the robot screenshot to the receipt PDF file    [Arguments]     ${IMG_FILE}     ${PDF_FILE}
 
     Log To Console                  Printing Embedding image ${IMG_FILE} in pdf file ${PDF_FILE}
 
@@ -207,16 +177,6 @@ Embed the robot screenshot to the receipt PDF file
     # Create the list of files that is to be added to the PDF (here, it is just one file)
     @{myfiles}=       Create List     ${IMG_FILE}:x=0,y=0
 
-    # Add the files to the PDF
-    #
-    # Note:
-    #
-    # 'append' requires the latest RPAframework. Update the version in the conda.yaml file - otherwise,
-    # this will not work. The VSCode auto-generated file contains a version number that is way too old.
-    #
-    # per https://github.com/robocorp/rpaframework/blob/master/packages/pdf/src/RPA/PDF/keywords/document.py,
-    # an "append" always adds a NEW page to the file. I don't see a way to EMBED the image in the first page
-    # which contains the order data
     Add Files To PDF    ${myfiles}    ${PDF_FILE}     ${True}
     TRY
         Close PDF           ${PDF_FILE}
