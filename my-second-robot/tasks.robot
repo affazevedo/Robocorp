@@ -31,30 +31,18 @@ ${_csvUrl}        https://robotsparebinindustries.com/orders.csv
 
 *** Test Cases ***
 Order robots from RobotSpareBin Industries Inc
+    
     Directory Cleanup
-
-   
     Open the robot order website
-
-    ${orders}=    Get orders
-    FOR    ${row}    IN    @{orders}
-        Close the annoying modal
-        Fill the form           ${row}
-        Wait Until Keyword Succeeds     10x     2s    Preview the robot
-        Wait Until Keyword Succeeds     10x     2s    Submit The Order
-        ${orderid}  ${img_filename}=    Take a screenshot of the robot
-        ${pdf_filename}=                Store the receipt as a PDF file    ORDER_NUMBER=${order_id}
-        Embed the robot screenshot to the receipt PDF file     IMG_FILE=${img_filename}    PDF_FILE=${pdf_filename}
-        Go to order another robot
-    END
+    Fill all orders
     Create a ZIP file of the receipts
-
-    Close Browser
+    Log out
 
     
 *** Keywords ***
 Open the robot order website
     Open Available Browser     ${url}
+    Maximize Browser Window
 
 Directory Cleanup
     Log To console      Cleaning up content from previous test runs
@@ -69,10 +57,25 @@ Directory Cleanup
     Empty Directory     ${_pdfFolder}
     # Empty Directory     ${_outputFolder}
 
+Fill all orders
+    ${orders}=    Get orders
+    FOR    ${row}    IN    @{orders}
+        Close the annoying modal
+        Fill the form           ${row}
+        Wait Until Keyword Succeeds     10x     2s    Preview the robot
+        Wait Until Keyword Succeeds     10x     2s    Submit The Order
+        ${orderid}  ${img_filename}=    Take a screenshot of the robot
+        ${pdf_filename}=                Store the receipt as a PDF file    ORDER_NUMBER=${order_id}
+        Embed the robot screenshot to the receipt PDF file     IMG_FILE=${img_filename}    PDF_FILE=${pdf_filename}
+        Go to order another robot
+    END
+
+
 Get orders
     Download    url=${_csvUrl}         target_file=${_ordersFile}    overwrite=True
     ${table}=   Read table from CSV    path=${_ordersFile}
     [Return]    ${table}
+
 
 Close the annoying modal
     # Define local variables for the UI elements
@@ -150,7 +153,7 @@ Go to order another robot
     Set Local Variable      ${btn_order_another_robot}      //*[@id="order-another"]
     Click Button            ${btn_order_another_robot}
 
-Close Browser
+Log out
     Close Browser
 
 Create a Zip File of the Receipts
