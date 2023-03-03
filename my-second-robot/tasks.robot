@@ -41,7 +41,7 @@ Order robots from RobotSpareBin Industries Inc
     
 *** Keywords ***
 Open the robot order website
-    Open Available Browser     ${url}
+    Open Available Browser     ${_url}
     Maximize Browser Window
 
 Directory Cleanup
